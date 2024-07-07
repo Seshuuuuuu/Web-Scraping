@@ -310,6 +310,8 @@ with open("URL_ID.txt", 'w') as file:
             tempfile.write(heading1)
             tempfile.write(Sub_head)
             tempfile.write(heading3)
+        item['URL_ID'] = dataset['URL_ID'][i]    
+        item['URL'] = url
         item['POSITIVE SCORE'] = get_positive_score(fetch_text_from_file('Temp.txt'))
         item['NEGATIVE SCORE'] = get_negative_score(fetch_text_from_file('Temp.txt'))
         item['POLARITY SCORE'] = get_polarity_score(fetch_text_from_file('Temp.txt'))
@@ -321,8 +323,8 @@ with open("URL_ID.txt", 'w') as file:
         item['COMPLEX WORD COUNT'] = count_complex_words(fetch_text_from_file('Temp.txt'))
         item['WORD COUNT'] = get_word_count(fetch_text_from_file('Temp.txt'))
         item['SYLLABLE PER WORD'] = get_syllables_per_word(fetch_text_from_file('Temp.txt'))
-        item['PERSONAL PRONOUN'] = find_personal_pronouns(fetch_text_from_file('Temp.txt'))
-        item['AVERAGE WORD LENGTH'] = average_word_length(fetch_text_from_file('Temp.txt'))
+        item['PERSONAL PRONOUNS'] = find_personal_pronouns(fetch_text_from_file('Temp.txt'))
+        item['AVG WORD LENGTH'] = average_word_length(fetch_text_from_file('Temp.txt'))
         data.append(item)
         export_data(data)
         erase_file_contents('Temp.txt')
